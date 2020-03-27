@@ -1,4 +1,4 @@
-***REMOVED***
+import discord
 import asyncio
 from tweepy import OAuthHandler, Stream, StreamListener
 from multiprocessing import Queue
@@ -15,32 +15,32 @@ class TwitterListener(StreamListener):
         print(status)
 
 
-***REMOVED***
+class MyClient(discord.Client):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         self.bg_task = self.loop.create_task(self.my_background_task())
 
 
-***REMOVED***
+    async def on_ready(self):
         print(f"Logged in as\n{self.user.name}\n{self.user.id}\n")
 
         twitter_listener = TwitterListener()
 
         twitter_auth = OAuthHandler(TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET)
-        twitter_***REMOVED***
+        twitter_auth.set_access_token(TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_TOKEN_SECRET)
 
         twitter_stream = Stream(twitter_auth, twitter_listener)
         twitter_stream.filter(follow=[TWITTER_ACCOUNT_TO_FOLLOW])
     
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
+    async def on_message(self, message):
+        # we do not want the bot to reply to itself
+        if message.author.id == self.user.id:
+            return
 
         if message.content.startswith('!koca'):
-***REMOVED***'Ben Dr. Fahrettin Koca. {0.author.mention}'.format(message))
+            await message.channel.send('Ben Dr. Fahrettin Koca. {0.author.mention}'.format(message))
 
     
     async def my_background_task(self):
@@ -58,5 +58,5 @@ class TwitterListener(StreamListener):
 
 q = Queue()
 
-***REMOVED***
+client = MyClient()
 client.run(DISCORD_TOKEN)

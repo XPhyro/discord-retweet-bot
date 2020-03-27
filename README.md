@@ -1,16 +1,16 @@
-***REMOVED***discord-retweet-bot
+# discord-retweet-bot
 
 A bot that regularly checks the tweets of a user, and retweets them to a specific discord channel.
 
-***REMOVED***Usage
+# Usage
 
 Fill the constants in [secrets-example.py](secrets-example.py) and rename it to *secrets.py*. Then run [main.py](main.py) from the same directory of secrets.py.
 
-***REMOVED***Requisites
+# Requisites
 
 This bot was written using Python 3.8.2.
 
-You should also have installed these:
+You should also have installed these libraries:
 
   Library   | Version
 |-----------|-------|
