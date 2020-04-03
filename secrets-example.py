@@ -1,9 +1,9 @@
 # Fill in these constants and rename the file to secrets.py
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
+TWITTER_CONSUMER_KEY = ""
+TWITTER_CONSUMER_SECRET = ""
+TWITTER_ACCESS_TOKEN = ""
+TWITTER_ACCESS_TOKEN_SECRET = ""
 TWITTER_ACCOUNT_TO_FOLLOW = ""
 
 DISCORD_TOKEN = ""
